@@ -1,12 +1,15 @@
 import { wrapStore } from 'react-chrome-redux';
 import configureStore from './store/configureStore'
 
-chrome.browserAction.onClicked.addListener(tab => {
+chrome.browserAction.onClicked.addListener(() => {
+    var width = 320;
+    var height = 470;
     chrome.windows.create({
         url: chrome.runtime.getURL("popup.html"),
         type: "popup",
         focused: true,
-        /* can also set width/height here, see docs */
+        width: width,
+        height: height,
     });
 });
 

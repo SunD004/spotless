@@ -21,6 +21,7 @@ const PlayerControl = ({
 }) => {
   let volumeInput = React.createRef()
   let volumeProgressBar = React.createRef()
+  // const [countdown, toggleCoutdown] = React.useState(COUNTDOWN)
 
   React.useEffect(() => {
     function checkTime() {
@@ -68,7 +69,12 @@ const PlayerControl = ({
           onClick={onSetRepeatMode}>
         </button>
       </div>
-      <p>Automatic Next Song in {countdown}s</p>
+      <div>
+        <p>Automatic Next Song in {countdown}s</p>
+        <button className={'control-button icon-repeat-' + repeat}
+          onClick={() => toggleCoutdown(COUNTDOWN)}>
+        </button>
+      </div>
       <div className="extended-controls">
         <button className={'control-button icon-heart ' + (favorite ? 'active' : '')}
           onClick={onToggleTrackFavorite}>
