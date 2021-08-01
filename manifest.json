@@ -12,6 +12,7 @@
   "browser_action": {
     "default_title": "Spotless"
   },
+  "incognito": "split",
   "permissions": [
     "https://open.spotify.com/",
     "https://spotify.com/",
