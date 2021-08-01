@@ -1,3 +1,4 @@
+import { func } from 'prop-types'
 import React from 'react'
 
 const COUNTDOWN = 60
@@ -71,9 +72,6 @@ const PlayerControl = ({
       </div>
       <div>
         <p>Automatic Next Song in {countdown}s</p>
-        <button className={'control-button icon-repeat-' + repeat}
-          onClick={() => toggleCoutdown(COUNTDOWN)}>
-        </button>
       </div>
       <div className="extended-controls">
         <button className={'control-button icon-heart ' + (favorite ? 'active' : '')}
