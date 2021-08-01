@@ -1,13 +1,15 @@
 import { PLAYER as actionTypes } from '../constants/actionTypes'
 import { TRACK as trackActionTypes } from '../constants/actionTypes'
 
+const COUNTDOWN = 60
+
 const defaultState = {
   playback: null,
   availableDevices: null,
   activeDevice: null,
   loading: true,
   track_info_loading: false,
-  countdown: 60,
+  countdown: COUNTDOWN,
 }
 
 export default (state = defaultState, action) => {

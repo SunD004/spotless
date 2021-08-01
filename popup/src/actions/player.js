@@ -115,7 +115,6 @@ export const onSetRepeatMode = () => (dispatch, getState) => {
 
 export const onSkipNext = () => (dispatch) => {
   dispatch({ type: actionTypes.TRACK_INFO_LOADING })
-
   return dispatch(callApiThunk({
     endpoint: playerEndpointGetters.skipNext(),
     method: 'POST',
@@ -193,9 +192,9 @@ export const pause = () => dispatch => {
   }))
 }
 
-export const toggleCoutdown = coutdown => (dispatch, getState) => {
+export const toggleCoutdown = coutdown => (dispatch) => {
   return dispatch(callApiThunk({
-    endpoint: '/',
+    endpoint: playerEndpointGetters.countdown(),
     method: 'PUT',
     types: [actionTypes.UPDATE_COUNTDOWN, actionTypes.UPDATE_COUNTDOWN_SUCCESS, actionTypes.UPDATE_COUNTDOWN_FAILURE]
   }, {

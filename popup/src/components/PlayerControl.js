@@ -1,5 +1,7 @@
 import React from 'react'
 
+const COUNTDOWN = 60
+
 const PlayerControl = ({
   repeat,
   shuffle,
@@ -17,7 +19,6 @@ const PlayerControl = ({
   onVolumeMuteToggle,
   toggleCoutdown
 }) => {
-  // const [countdown, setCountdown] = React.useState(45);
   let volumeInput = React.createRef()
   let volumeProgressBar = React.createRef()
 
@@ -44,7 +45,7 @@ const PlayerControl = ({
 
   if (countdown === 0 && playing) {
     onSkipNext();
-    toggleCoutdown(60)
+    toggleCoutdown(COUNTDOWN)
   }
 
 

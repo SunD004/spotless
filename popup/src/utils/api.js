@@ -56,6 +56,9 @@ export const callApiThunk = (options, data) => async (dispatch, getState) => {
 
   dispatch({ ...data, type: requestType })
 
+  if (endpoint === '/me/player/countdown')
+    return null
+
   return callApi(method, endpoint, headers, body, schema, responseSelector)
     .then(response => {
       authenticated = true

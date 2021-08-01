@@ -9,6 +9,7 @@ export default {
   skipNext: () => '/me/player/next',
   skipPrevious: () => '/me/player/previous',
   play: () => '/me/player/play',
+  countdown: () => '/me/player/countdown',
   pause: () => '/me/player/pause',
   setVolumeEndpoint: percent => `/me/player/volume?volume_percent=${percent}`,
   setCountdownEndpoint: countdown => `/me/player/countdown?countdown=${countdown}`
