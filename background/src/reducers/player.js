@@ -6,7 +6,8 @@ const defaultState = {
   availableDevices: null,
   activeDevice: null,
   loading: true,
-  track_info_loading: false
+  track_info_loading: false,
+  countdown: 60,
 }
 
 export default (state = defaultState, action) => {
@@ -17,7 +18,7 @@ export default (state = defaultState, action) => {
         playback: action.response,
         availableDevices: [action.response.device],
         activeDevice: action.response.device
-       }
+      }
 
     case actionTypes.FETCH_AVAILABLE_DEVICES_SUCCESS:
       const activeDevice = action.response.find(device => device["is_active"])
@@ -26,6 +27,9 @@ export default (state = defaultState, action) => {
 
     case actionTypes.TRANSFER_PLAYBACK_SUCCESS:
       return { ...state, activeDevice: action.device }
+
+    case actionTypes.UPDATE_COUNTDOWN:
+      return { ...state, countdown: action.coutdown }
 
     case actionTypes.START_PLAYBACK_SUCCESS:
       return {
@@ -119,10 +123,10 @@ export default (state = defaultState, action) => {
       }
 
     case actionTypes.TRACK_INFO_LOADING:
-    return {
-      ...state,
-      track_info_loading: true
-    }
+      return {
+        ...state,
+        track_info_loading: true
+      }
 
     case actionTypes.TRACK_INFO_LOAD_DONE:
       return {

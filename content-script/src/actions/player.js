@@ -6,7 +6,17 @@ export const getPlaybackData = () => dispatch => {
   return dispatch(callApiThunk({
     endpoint: playerEndpointGetters.getPlaybackDataEndpoint(),
     method: 'GET',
-    types: [ actionTypes.FETCH_PLAYBACK_DATA_REQUEST, actionTypes.FETCH_PLAYBACK_DATA_SUCCESS, actionTypes.FETCH_PLAYBACK_DATA_FAILURE ]
+    types: [actionTypes.FETCH_PLAYBACK_DATA_REQUEST, actionTypes.FETCH_PLAYBACK_DATA_SUCCESS, actionTypes.FETCH_PLAYBACK_DATA_FAILURE]
+  }))
+}
+
+export const toggleCoutdown = coutdown => (dispatch, getState) => {
+  return dispatch(callApiThunk({
+    endpoint: '/',
+    method: 'PUT',
+    types: [actionTypes.UPDATE_COUNTDOWN, actionTypes.UPDATE_COUNTDOWN_SUCCESS, actionTypes.UPDATE_COUNTDOWN_FAILURE]
+  }, {
+    coutdown: coutdown,
   }))
 }
 
@@ -14,7 +24,7 @@ export const onSetVolume = percent => (dispatch, getState) => {
   return dispatch(callApiThunk({
     endpoint: playerEndpointGetters.setVolumeEndpoint(percent),
     method: 'PUT',
-    types: [ actionTypes.SET_VOLUME_REQUEST, actionTypes.SET_VOLUME_SUCCESS, actionTypes.SET_VOLUME_FAILURE ]
+    types: [actionTypes.SET_VOLUME_REQUEST, actionTypes.SET_VOLUME_SUCCESS, actionTypes.SET_VOLUME_FAILURE]
   }, {
     from: +getState().player.playback.device["volume_percent"],
     to: +percent

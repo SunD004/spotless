@@ -11,9 +11,10 @@ import {
   onSkipNext,
   onSkipPrevious,
   onSetVolume,
-  onVolumeMuteToggle
+  onVolumeMuteToggle,
+  toggleCoutdown
 } from '../actions/player'
-import { getTokenFromCookie } from '../actions/auth'
+import { getTokenFromCookie } from '../actions/auth'
 import { onToggleTrackFavorite } from '../actions/track'
 import { getPlayerControlState, getPlayingTrackData, getDeviceAvailability, getLoadingStatus, getTrackInfoLoadingStatus } from '../selectors/player';
 
@@ -26,19 +27,19 @@ class PlayerContainer extends Component {
     const { playingTrackData, noDevice, loading, trackInfoLoading } = this.props
 
     if (noDevice) {
-      return(
+      return (
         <div>
-           <Loading loading={loading} />
-           <NoDevice />
+          <Loading loading={loading} />
+          <NoDevice />
         </div>
       )
     }
 
     return (
       <div>
-        <Loading loading={loading}/>
+        <Loading loading={loading} />
         {
-          playingTrackData ? <Player {...this.props}/> : null
+          playingTrackData ? <Player {...this.props} /> : null
         }
       </div>
     )
@@ -65,5 +66,6 @@ export default connect(mapStateToProps, {
   onSkipPrevious,
   onToggleTrackFavorite,
   onSetVolume,
-  onVolumeMuteToggle
+  onVolumeMuteToggle,
+  toggleCoutdown
 })(PlayerContainer)

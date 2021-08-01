@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect'
 
 export const getPlayback = state => state.player.playback
+export const getCountdown = state => state.player.countdown
 export const getPlaybackItem = state => state.player.playback ? state.player.playback.item : null
 export const getCoverArtUrl = createSelector(getPlaybackItem, playbackItem => {
   if (!playbackItem || !playbackItem.album || !playbackItem.album.images) {
@@ -38,7 +39,7 @@ export const getPlayingTrackData = createSelector(getPlayback, getCoverArtUrl, g
   return { coverArtUrl, trackName, artists }
 })
 
-export const getPlayerControlState = createSelector(getPlayback, getFavoriteStatus, getVolumePercentage, (playback, favorite, volume) => {
+export const getPlayerControlState = createSelector(getPlayback, getFavoriteStatus, getVolumePercentage, getCountdown, (playback, favorite, volume, countdown) => {
   if (!playback) {
     return null
   }
@@ -48,7 +49,8 @@ export const getPlayerControlState = createSelector(getPlayback, getFavoriteStat
     shuffle: playback['shuffle_state'],
     playing: playback['is_playing'],
     favorite,
-    volume
+    volume,
+    countdown
   }
 })
 

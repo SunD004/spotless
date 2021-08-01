@@ -46,7 +46,7 @@ export const callApiThunk = (options, data) => async (dispatch, getState) => {
     throw new Error('Expecting array with 3 elements corresponding to requesting, success and failure')
   }
 
-  const [ requestType, successType, failureType ] = types
+  const [requestType, successType, failureType] = types
 
   dispatch({ ...data, type: requestType })
 
@@ -103,7 +103,7 @@ export const callApiThunk = (options, data) => async (dispatch, getState) => {
         })
 
         return Promise.reject(err.message)
-      } catch(err) {
+      } catch (err) {
         if (err.response.data.error.status === 401) {
           await dispatch(getTokenFromCookie())
           authenticated = false
@@ -132,7 +132,7 @@ function callApi(method, endpoint, headers, body, schema, responseSelector) {
     method,
     url: fullUrl,
     data: body,
-    headers: {...headers, authorization: `Bearer ${access_token}`}
+    headers: { ...headers, authorization: `Bearer ${access_token}` }
   })
     .then(res => schema ? normalize(res.data[responseSelector] || res.data, schema) : (res.data[responseSelector] || res.data))
     .catch(res => Promise.reject(res.response.data.error))

@@ -9,14 +9,14 @@ const Player = ({
   trackInfoLoading,
   ...playerControlActions
 }) => {
-  return(
+  return (
     <div className='player'>
       <div className='player-media-object'>
-        <Loading loading={trackInfoLoading}/>
-        <MediaObject {...playingTrackData}/>
+        <Loading loading={trackInfoLoading} />
+        <MediaObject {...playingTrackData} />
       </div>
       <div className='player-player-control'>
-        <PlayerControl {...playerControlState} {...playerControlActions}/>
+        <PlayerControl {...playerControlState} {...playerControlActions} />
       </div>
     </div>
   )
