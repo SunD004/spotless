@@ -1,7 +1,7 @@
 import React from 'react'
 
-const COUNTDOWN = 32 //50 avant
-const COUNTDOWNMIN = 16 //35 avant
+const COUNTDOWN = 30 //50 avant
+const COUNTDOWNMIN = 23 //35 avant
 
 function randomIntFromInterval(min, max) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
