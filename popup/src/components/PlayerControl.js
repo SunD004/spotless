@@ -1,7 +1,7 @@
 import React from 'react'
 
-const COUNTDOWN = 50
-const COUNTDOWNMIN = 35
+const COUNTDOWN = 32 //50 avant
+const COUNTDOWNMIN = 16 //35 avant
 
 function randomIntFromInterval(min, max) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -50,10 +50,9 @@ const PlayerControl = ({
   }
 
   if (countdown === 0 && playing) {
-    onSkipNext();
     toggleCoutdown(randomIntFromInterval(COUNTDOWNMIN, COUNTDOWN))
+    onSkipNext();
   }
-
 
   return (
     <div className='player-control'>
