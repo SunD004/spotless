@@ -1,7 +1,7 @@
 import { PLAYER as actionTypes } from '../constants/actionTypes'
 import { TRACK as trackActionTypes } from '../constants/actionTypes'
 
-const COUNTDOWN = 23
+const COUNTDOWN = 32
 
 const defaultState = {
   playback: null,
